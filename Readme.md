@@ -45,6 +45,7 @@ personal_ai_assistant/
 ├── mcp_server.py                    # MCP server for IDE integration
 ├── requirements.txt                 # Python dependencies
 └── README.md                        # Project documentation
+```
 
 Feel free to customize this description to better match your project's specific features and goals!
 
