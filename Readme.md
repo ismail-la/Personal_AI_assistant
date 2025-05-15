@@ -21,23 +21,7 @@ A sophisticated voice-controlled AI assistant that combines speech recognition, 
 - **SoundDevice/SoundFile**: Audio processing libraries
 
 ## Project Structure
-
-personal_ai_assistant/
-├── agents/ # Agent implementations
-│ ├── react_agent.py # ReAct pattern agent for reasoning
-│ ├── supervisor.py # Supervision layer
-│ └── graph.py # Agent orchestration
-├── api/ # API endpoints
-│ └── main.py # FastAPI application
-├── fine_tune/ # Model fine-tuning
-│ ├── data/ # Training datasets
-│ └── train_adapter.py # LoRA adapter training script
-├── voice_interface/ # Voice interaction components
-│ ├── stt.py # Speech-to-text using Vosk
-│ ├── tts.py # Text-to-speech conversion
-│ └── voice_app.py # Voice application entry point
-└── utils/ # Shared utilities
-└── config.py # Configuration settings
+personal_ai_assistant/ ├── agents/ # Agent implementations │ ├── react_agent.py # ReAct pattern agent for reasoning │ ├── supervisor.py # Supervision layer │ └── graph.py # Agent orchestration ├── api/ # API endpoints │ └── main.py # FastAPI application ├── fine_tune/ # Model fine-tuning │ ├── data/ # Training datasets │ └── train_adapter.py # LoRA adapter training script ├── voice_interface/ # Voice interaction components │ ├── stt.py # Speech-to-text using Vosk │ ├── tts.py # Text-to-speech conversion │ └── voice_app.py # Voice application entry point ├── utils/ # Shared utilities │ └── config.py # Configuration settings ├── Dockerfile # Container definition for deployment ├── mcp_server.py # MCP server for IDE integration ├── requirements.txt # Python dependencies └── README.md # Project documentation
 
 Feel free to customize this description to better match your project's specific features and goals!
 
