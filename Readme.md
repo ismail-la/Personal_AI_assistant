@@ -60,24 +60,6 @@ Feel free to customize this description to better match your project's specific 
    pip install --no-cache-dir -r requirements.txt
 
 
-personal_ai_assistant/
-├── agents/                     # Agent implementations
-│   ├── react_agent.py          # ReAct pattern agent for reasoning
-│   ├── supervisor.py           # Supervision layer
-│   └── graph.py                # Agent orchestration
-├── api/                        # API endpoints
-│   └── main.py                 # FastAPI application
-├── fine_tune/                  # Model fine-tuning
-│   ├── data/                   # Training datasets
-│   └── train_adapter.py        # LoRA adapter training script
-├── voice_interface/            # Voice interaction components
-│   ├── stt.py                  # Speech-to-text using Vosk
-│   ├── tts.py                  # Text-to-speech conversion
-│   └── voice_app.py            # Voice application entry point
-└── utils/                      # Shared utilities
-    └── config.py               # Configuration settings
-```
-
 ## Setup and Installation
 
 1. **Clone and Install Dependencies**
