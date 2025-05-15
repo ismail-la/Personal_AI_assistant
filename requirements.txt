@@ -1,0 +1,16 @@
+fastapi
+uvicorn
+transformers
+peft
+bitsandbytes
+accelerate
+datasets
+langchain
+langsmith
+langgraph
+vosk
+pyttsx3
+flask
+sounddevice
+soundfile
+requests
