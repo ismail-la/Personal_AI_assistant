@@ -1,4 +1,3 @@
-
 # Personal AI Assistant
 
 A sophisticated voice-controlled AI assistant that combines speech recognition, text-to-speech, and custom fine-tuned language models to provide an intelligent conversational interface.
@@ -19,8 +18,6 @@ A sophisticated voice-controlled AI assistant that combines speech recognition, 
 - **LangChain**: Framework for connecting LLMs with tools and agents
 - **FastAPI**: API framework for backend services
 - **SoundDevice/SoundFile**: Audio processing libraries
-
-## Project Structure
 
 ## Project Structure
 
@@ -51,45 +48,28 @@ Feel free to customize this description to better match your project's specific 
 
 ## Setup and Installation
 
-1. **Clone and Install Dependencies**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/ismail-la/personal_ai_assistant.git
-   cd personal_ai_assistant
+### 1. Clone and Install Dependencies
 
-   # Create & activate virtual environment
-   python -m venv venv  # Create a virtual environment
-   # On Windows:
-   venv\Scripts\activate  # Activate on Windows
-   # On macOS/Linux:
-   source venv/bin/activate  # Activate on macOS/Linux
+```bash
+# Clone the repository
+git clone https://github.com/ismail-la/personal_ai_assistant.git
+cd personal_ai_assistant
 
-   # Install Python dependencies
-   pip install --no-cache-dir -r requirements.txt
+# Create & activate virtual environment
+python -m venv venv  # Create a virtual environment
+# On Windows:
+venv\Scripts\activate  # Activate on Windows
+# On macOS/Linux:
+source venv/bin/activate  # Activate on macOS/Linux
 
+# Install Python dependencies
+pip install --no-cache-dir -r requirements.txt
+```
 
-## Setup and Installation
+### 2. Download Vosk Model
 
-1. **Clone and Install Dependencies**
-   ```bash
-   # Clone the repository
-   git clone https://github.com/ismail-la/personal_ai_assistant.git
-   cd personal_ai_assistant
-
-   # Create & activate virtual environment
-   python -m venv venv
-   # On Windows:
-   venv\Scripts\activate
-   # On macOS/Linux:
-   source venv/bin/activate
-
-   # Install Python dependencies
-   pip install --no-cache-dir -r requirements.txt
-   ```
-
-1. **Download Vosk Model**
-   - Download a model from [Vosk models](https://alphacephei.com/vosk/models) (recommended: vosk-model-small-en-us-0.15)
-   - Extract to `voice_interface/model/`
+- Download a model from [Vosk models](https://alphacephei.com/vosk/models) (recommended: vosk-model-small-en-us-0.15)
+- Extract to `voice_interface/model/`
 
 ## Testing and Usage
 
@@ -97,19 +77,22 @@ Feel free to customize this description to better match your project's specific 
 
 If you want to train a custom LoRA adapter on your own data:
 
-1. **Prepare training data**
-   Create a `fine_tune/data/train.jsonl` file with examples:
-   ```json
-   {"instruction": "Translate to French: Hello", "response": "Bonjour"}
-   {"instruction": "What is machine learning?", "response": "Machine learning is a branch of AI..."}
-   ```
+#### a) Prepare training data
 
-2. **Run the trainer**
-   ```bash
-   python fine_tune/train_adapter.py --base_model gpt2 --data fine_tune/data/train.jsonl
-   ```
+Create a `fine_tune/data/train.jsonl` file with examples:
 
-3. **After training**, your adapter will be saved in `fine_tune/output/`
+```json
+{"instruction": "Translate to French: Hello", "response": "Bonjour"}
+{"instruction": "What is machine learning?", "response": "Machine learning is a branch of AI..."}
+```
+
+#### b) Run the trainer
+
+```bash
+python fine_tune/train_adapter.py --base_model gpt2 --data fine_tune/data/train.jsonl
+```
+
+#### c) After training, your adapter will be saved in `fine_tune/output/`
 
 ### 2. Start the FastAPI Server
 
@@ -124,30 +107,35 @@ uvicorn api.main:app --reload
 ### 3. Test the Chat Endpoint
 
 #### a) Using cURL
+
 ```bash
 curl -X POST http://127.0.0.1:8000/chat/ \
-  -H "Content-Type: application/json" \
-  -d '{"prompt":"What is the capital of France?"}'
+    -H "Content-Type: application/json" \
+    -d '{"prompt":"What is the capital of France?"}'
 ```
 
 Expected response:
+
 ```json
-{"response":"Paris is the capital of France."}
+{ "response": "Paris is the capital of France." }
 ```
 
 #### b) Using Python
+
 Create a file named `test_chat.py`:
+
 ```python
 import requests
 
 resp = requests.post(
-    "http://127.0.0.1:8000/chat/",
-    json={"prompt": "Summarize the benefits of AI."}
+        "http://127.0.0.1:8000/chat/",
+        json={"prompt": "Summarize the benefits of AI."}
 )
 print(resp.json()["response"])
 ```
 
 Run it:
+
 ```bash
 python test_chat.py
 ```
@@ -169,9 +157,9 @@ print(agent.run("List three uses of LangChain."))
 
 1. Start the API server in one terminal
 2. In another terminal, run the voice app:
-   ```bash
-   python voice_interface/voice_app.py
-   ```
+     ```bash
+     python voice_interface/voice_app.py
+     ```
 3. Speak when prompted—your assistant will transcribe, respond, and speak back
 
 ### 6. (Optional) MCP Server for IDE Integration
@@ -184,22 +172,27 @@ flask run --port 6000
 ```
 
 Endpoints:
+
 - `POST /read` with `{ "path": "agents/react_agent.py" }`
 - `POST /run_chat` with `{ "prompt": "Hello" }`
 
 ## Docker Deployment
 
-1. **Build the Docker image**
-   ```bash
-   docker build -t personal-ai-assistant .
-   ```
+### 1. Build the Docker image
 
-2. **Run the container**
-   ```bash
-   docker run -p 8000:8000 personal-ai-assistant
-   ```
+```bash
+docker build -t personal-ai-assistant .
+```
 
-3. **Test the API** using cURL or your Python script on `localhost:8000`
+### 2. Run the container
+
+```bash
+docker run -p 8000:8000 personal-ai-assistant
+```
+
+### 3. Test the API
+
+Use cURL or your Python script on `localhost:8000`
 
 ## Future Improvements
 
