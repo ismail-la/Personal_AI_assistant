@@ -59,33 +59,7 @@ Feel free to customize this description to better match your project's specific 
    # Install Python dependencies
    pip install --no-cache-dir -r requirements.txt
 
-Here's the complete README.md file for your project:
 
-```markdown
-# Personal AI Assistant
-
-A sophisticated voice-controlled AI assistant that combines speech recognition, text-to-speech, and custom fine-tuned language models to provide an intelligent conversational interface.
-
-## Features
-
-- **Speech Recognition**: Uses Vosk for accurate offline speech-to-text conversion
-- **Natural Voice Response**: Text-to-speech capabilities for natural-sounding replies
-- **Custom Language Models**: Fine-tuned with LoRA adapters for specialized knowledge
-- **Expandable Architecture**: Modular design with agent-based reasoning
-- **FastAPI Backend**: Modern, high-performance API endpoint
-
-## Technologies
-
-- **Python**: Core programming language
-- **Vosk**: Open-source speech recognition
-- **Transformers**: Hugging Face models with PEFT fine-tuning
-- **LangChain**: Framework for connecting LLMs with tools and agents
-- **FastAPI**: API framework for backend services
-- **SoundDevice/SoundFile**: Audio processing libraries
-
-## Project Structure
-
-```
 personal_ai_assistant/
 ├── agents/                     # Agent implementations
 │   ├── react_agent.py          # ReAct pattern agent for reasoning
